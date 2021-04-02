@@ -51,14 +51,14 @@ class VerboseShell
     FileUtils.ln_s(src, dest, options)
   end
 
-  def self.rm_rf(file,options={})
+  def self.rm_rf(file)
     system_trace *%W"rm -rf #{file}"
-    FileUtils.rm_rf file, options
+    FileUtils.rm_rf file
   end
 
-  def self.mkdir_p(file,options={})
+  def self.mkdir_p(file)
     system_trace *%W"mkdir -p #{file}"
-    FileUtils.mkdir_p file, options
+    FileUtils.mkdir_p file
   end
 
   def self.chdir(dir)
