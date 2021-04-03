@@ -48,7 +48,7 @@ def combine(tars, out_app, bin_arch)
       Vsh.system(*(%W"tar xf #{emacs[:tar]}"))
     }
     if !File.exists? out_app
-      Vsh.cp_r(emacs[:app], out_app, :preserve => true)
+      Vsh.cp_r(emacs[:app], out_app)
       Vsh.rm_rf(File.join(out_app,     'Contents/MacOS/bin'))
       Vsh.rm_rf(File.join(out_app,     'Contents/MacOS/lib'))
       Vsh.rm_rf(File.join(out_app,     'Contents/MacOS/libexec'))

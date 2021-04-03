@@ -43,7 +43,7 @@ class VerboseShell
 
   def self.cp_r(src,dest)
     system_trace *%W"cp -r #{src} #{dest}"
-    FileUtils.cp_r(src, dest)
+    FileUtils.cp_r(src, dest, preserve: true)
   end
 
   def self.ln_s(src,dest)
