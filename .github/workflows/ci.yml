@@ -1,0 +1,26 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build Emacs
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+
+      - name: Fetch Emacs code
+        run: ./fetch-emacs-from-ftp -v ftp://ftp.gnu.org/pub/gnu/emacs
+
+      - name: Build Emacs
+        run: ./build-emacs-from-tar -v -j 8 $(find . -name "*.bz2") release
+
+      - name: Package
+        run: ./combine-and-package -v $(find . -name "Emacs-*")
