@@ -25,30 +25,30 @@ class VerboseShell
     IO.popen(args + (@verbose == 0 ? [{:err => "/dev/null"}] : []), "r") {|io| io.read}.strip
   end
 
-  def self.mv(src,dest,options={})
+  def self.mv(src,dest)
     system_trace *%W"mv #{src} #{dest}"
-    FileUtils.mv(src, dest, options)
+    FileUtils.mv(src, dest)
   end
 
-  def self.chmod(mode,list,options={})
+  def self.chmod(mode,list)
     list = [list] unless list.class == Array
     system_trace *%W"chmod #{mode} "+list
-    FileUtils.chmod(mode, list, options)
+    FileUtils.chmod(mode, list)
   end
 
-  def self.cp(src,dest,options={})
+  def self.cp(src,dest)
     system_trace *%W"cp #{src} #{dest}"
-    FileUtils.cp(src, dest, options)
+    FileUtils.cp(src, dest)
   end
 
-  def self.cp_r(src,dest,options={})
+  def self.cp_r(src,dest)
     system_trace *%W"cp -r #{src} #{dest}"
-    FileUtils.cp_r(src, dest, options)
+    FileUtils.cp_r(src, dest)
   end
 
-  def self.ln_s(src,dest,options={})
+  def self.ln_s(src,dest)
     system_trace *%W"ln -s #{src} #{dest}"
-    FileUtils.ln_s(src, dest, options)
+    FileUtils.ln_s(src, dest)
   end
 
   def self.rm_rf(file)
