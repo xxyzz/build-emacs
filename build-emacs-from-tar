@@ -48,7 +48,7 @@ def build_emacs(src_dir, brew_dir, out_name, options={})
 
     FileUtils.cd('nextstep') { Vsh.system(*(%W"tar cjf #{out_name} Emacs.app")) }
   end
-  Vsh.mv(File.join(src_dir, 'nextstep', out_name), out_name, :force => true)
+  Vsh.mv(File.join(src_dir, 'nextstep', out_name), out_name)
   out_name
 end
 

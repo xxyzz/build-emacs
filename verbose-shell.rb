@@ -27,7 +27,7 @@ class VerboseShell
 
   def self.mv(src,dest)
     system_trace *%W"mv #{src} #{dest}"
-    FileUtils.mv(src, dest)
+    FileUtils.mv(src, dest, force: true)
   end
 
   def self.chmod(mode,list)
