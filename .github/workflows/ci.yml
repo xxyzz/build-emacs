@@ -24,3 +24,8 @@ jobs:
 
       - name: Package
         run: ./combine-and-package -v $(find . -name "Emacs-*")
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./*.dmg
