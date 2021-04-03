@@ -20,7 +20,7 @@ jobs:
         run: ./fetch-emacs-from-ftp -v ftp://ftp.gnu.org/pub/gnu/emacs
 
       - name: Build Emacs
-        run: ./build-emacs-from-tar -v -j 8 $(find . -name "*.bz2") release
+        run: ./build-emacs-from-tar --no-brew -v -j 8 $(find . -name "*.bz2") release
 
       - name: Package
         run: ./combine-and-package -v $(find . -name "Emacs-*")
